@@ -151,6 +151,46 @@ flowchart TD
     C -->D
 ```
 
-### Key considerations
+## Key considerations
+
+My approach to defining this ETL is two-fold:
+
+1) Understand the business and the things the stakeholders care about
+- Since the key to Lore's revenue is partner adoption and retention, I focused on defining metrics that track user engagment and outcomes.
+- As Lore's product is primarily an AI-based tool, then I also incorporated metrics and dimensions that specifically track model performance, as well as technologies that work well with text and chat analysis.
+2) Understand the technologies and data characteristics at Lore.
+- Every data engineering initiative is different because there are different data sizes and velocities, different source systems, formats, and schemas of incoming data, different granularities and quality, and different analytical needs.
+- I need to gather the requirements of the problem and gather information about the data and systems involved, and then I can make informed decisions about what frameworks and technologies to choose that best suit the particular situation
+3) I prefer to work with people to understand their needs. Casting a wide net of different technology and platform trials, and rapidly creating and delivering PoCs, can lead to quick wins as well as fast fails (both good things)
+
+There is at least one other major consideration here and that is the presence of PII or potentially harmful information in the raw text data being analyzed. I would be careful to work closely with the regulating bodies to ensure proper handling of this data, as well as define clear and definitely steps and escalations to take in case of a breach.
 
 ## Productionalization and PoC Improvements
+
+There is a lot to be improved in the productionalization, and even in the PoC.
+
+The following is an incomplete list of things that are necessarily part of a robust data product, and I would implement all of them and more:
+1. Unit tests and integration tests at the repo level are key to ensuring the code meets certain standards and is safe to be worked on. Without tests, a pipeline can never be altered
+2. CICD is key to rapid development
+3. A proper DB migration system and IAC is needed to ensure portability across time, platforms, and environments, as well as auto-documented clarity about what objects are involved in the system
+4. DB level tests are required at each warehouse layer as contracts to ensure that data being reported upon is never corrupted
+5. Monitoring & Alerting as well as on-call shifts are key to addressing runtime errors quickly
+6. The pipelines themselves need to be idempotent as well as having auto-retry, and catch-up functionality. Pipelines should take some runtime arguments around batch reprocess start dates, etc.
+7. Incoming data should be profiled for schema drift and declining quality
+8. Technologies need to be auto-scaling or adequately powerful to handle sporadic, incredibly large loads, full-refreshes, etc.
+9. History should always be preserved, and ETL & source system metadata should be added to enriched data
+10. Storage needs to be optimized by utilizing partitioning and clustering
+11. Queries need to be optimized to avoid unnecessarily large scans and fan-outs
+12. Costs need to be monitored at least on a monthly basis
+13. Raw data needs to be moved to cooling storage with appropriate retention policies
+14. Cloud infrastructure should be properly managed with stored secrets and IAM policies
+15. A clear data dictionary should be maintained
+
+### Monitoring success of data products
+
+I would track the kinds of queries being issued against the warehouse, and especially track which dashboards are getting hits.
+A data product won't be successful or can't be measured if A) No one know it exists and B) the usage isn't tracked. I like to have an internal dashboard around my own product performance metrics, and think as if I am my own start-up within a start-up, the goal being to get adoption of my products.
+
+### Future
+
+Agentic flows are going to soon be incorporated in all analytics. Data warehouses need to be designed and maintained with AI in mind and not only humans in mind. Proper schema layout, table names, and column names and descriptions will ensure that an LLM will be better able to consume and understand an organization's data.
