@@ -2,7 +2,6 @@ import json
 import random
 from datetime import datetime, timedelta
 
-
 random.seed(42)
 
 USER_INITIAL_MESSAGES = [
