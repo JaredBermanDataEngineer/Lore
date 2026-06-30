@@ -2,7 +2,7 @@
 
 ## The Scenario
 
-Lore has launched a new product that uses RAG to find participating therapists that have good reviews (based on chat analysis as well as external sources) in the customer's particular struggles or issue. The product then keeps an ongoing chat with the customer to keep tabs on their progress in real human therapy. Lore then maintains a profile on therapists and continually evaluates recommendations based on their performance.
+Lore has launched a new product that uses RAG to find participating therapists that have good reviews (based on chat analysis as well as external sources) in the customer's particular struggles or issue. The product then keeps an ongoing chat with the customer to keep tabs on their progress in real human therapy.
 
 The product is in beta, launching to the public soon, and we want to be able to understand in real time how it's going. It's critical for financial reasons that we be able to provide accurate performance feedback to participating vendors, because our continued success with our partners depends on the success within the app (and ultimately within the lives) of the customers they refer to us.
 
@@ -127,7 +127,7 @@ Incomplete list of the metrics I would make computable in the analytics-facing w
 | **cost_per_active_user** | |
 
 ```mermaid
-flowchart TD
+flowchart LR
 
     A[Pub/Sub message]
 
@@ -141,14 +141,20 @@ flowchart TD
         F[Airflow DAG]
     end
 
+    subgraph VertexAI[VertexAI]
+        G[Embeddding/Search]
+    end
 
-    A --> B
+
     F-->|Schedule Queries for TEXT analysis|B
-    F-->|Schedule Queries for gold layer|D
+    A-->B
+    F-->|Schedule Queries for analytics layer|C
     B -->|Gemini prompt message-level| C
     B -->|Gemini prompt session-level| C
     B -->|Gemini prompt history-level| C
-    C -->D
+    C -->G
+    C-->D
+    G-->D
 ```
 
 ## Key considerations
@@ -163,7 +169,7 @@ My approach to defining this ETL is two-fold:
 - I need to gather the requirements of the problem and gather information about the data and systems involved, and then I can make informed decisions about what frameworks and technologies to choose that best suit the particular situation
 3) I prefer to work with people to understand their needs. Casting a wide net of different technology and platform trials, and rapidly creating and delivering PoCs, can lead to quick wins as well as fast fails (both good things)
 
-There is at least one other major consideration here and that is the presence of PII or potentially harmful information in the raw text data being analyzed. I would be careful to work closely with the regulating bodies to ensure proper handling of this data, as well as define clear and definitely steps and escalations to take in case of a breach.
+There is at least one other major consideration here and that is the presence of PII or potentially harmful information in the raw text data being analyzed. I would be careful to work closely with the regulating bodies to ensure proper handling of this data, as well as define clear and definite steps and escalations to take in case of a breach.
 
 ## Productionalization and PoC Improvements
 
@@ -189,8 +195,8 @@ The following is an incomplete list of things that are necessarily part of a rob
 ### Monitoring success of data products
 
 I would track the kinds of queries being issued against the warehouse, and especially track which dashboards are getting hits.
-A data product won't be successful or can't be measured if A) No one know it exists and B) the usage isn't tracked. I like to have an internal dashboard around my own product performance metrics, and think as if I am my own start-up within a start-up, the goal being to get adoption of my products.
+A data product won't be successful or can't be measured if A) No one know it exists and B) the usage isn't tracked. I like to have an internal dashboard around my own product performance metrics, and think as if I were my own start-up within a start-up, the goal being to get adoption of my products.
 
 ### Future
 
-Agentic flows are going to soon be incorporated in all analytics. Data warehouses need to be designed and maintained with AI in mind and not only humans in mind. Proper schema layout, table names, and column names and descriptions will ensure that an LLM will be better able to consume and understand an organization's data.
+Agentic flows are becoming increasing popular in business analytic. Data warehouses need to be designed and maintained with AI in mind and not only humans in mind. Proper schema layout, table names, and column names and descriptions will ensure that an LLM will be better able to consume and understand an organization's data.
