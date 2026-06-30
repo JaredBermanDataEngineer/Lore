@@ -1,0 +1,152 @@
+[
+    {
+        "customer_id": 1,
+        "messages": [
+            {
+                "role": "user",
+                "timestamp": "2026-06-06T19:24:26.051880",
+                "content": "I just found out I'm failing chemistry!!"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-06T19:24:30.051880",
+                "content": "Can you be a little more specific so I can best help you?"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-06T19:26:05.051880",
+                "content": "Basically my problem started last year, and it's been getting worse"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-06T19:34:17.051880",
+                "content": "OK I recommend Dr. John Doe. Here's a link to his profile: <link>"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-06T19:37:33.051880",
+                "content": "What?! No way! Worst app ever!"
+            }
+        ]
+    },
+    {
+        "customer_id": 2,
+        "messages": [
+            {
+                "role": "user",
+                "timestamp": "2026-05-14T19:24:26.051924",
+                "content": "I need help with a tricky situation at work."
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-05-14T19:24:31.051924",
+                "content": "Tell me a little more about the immediate situation"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-05-14T19:26:04.051924",
+                "content": "I don't know what to say, I feel like I need professional help"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-05-14T19:33:56.051924",
+                "content": "OK I recommend Dr. John Doe. Here's a link to his profile: <link>"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-05-14T19:37:41.051924",
+                "content": "Thanks so much for the help! I love the product!"
+            }
+        ]
+    },
+    {
+        "customer_id": 3,
+        "messages": [
+            {
+                "role": "user",
+                "timestamp": "2026-06-18T19:24:26.051938",
+                "content": "I need help with a tricky situation at work."
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-18T19:24:30.051938",
+                "content": "Tell me a little more about the immediate situation"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-18T19:25:10.051938",
+                "content": "I don't know what to say, I feel like I need professional help"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-18T19:30:05.051938",
+                "content": "Got it. I just have a few more quick questions to ask and then I'll get you on your way."
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-18T19:36:16.051938",
+                "content": "What?! No way! Worst app ever!"
+            }
+        ]
+    },
+    {
+        "customer_id": 4,
+        "messages": [
+            {
+                "role": "user",
+                "timestamp": "2026-06-14T19:24:26.051948",
+                "content": "I need help with a tricky situation at work."
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-14T19:24:27.051948",
+                "content": "Tell me a little more about yourself, start from the beginning"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-14T19:25:45.051948",
+                "content": "Basically my problem started last year, and it's been getting worse"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-06-14T19:29:18.051948",
+                "content": "Got it. I just have a few more quick questions to ask and then I'll get you on your way."
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-06-14T19:30:08.051948",
+                "content": "What?! No way! Worst app ever!"
+            }
+        ]
+    },
+    {
+        "customer_id": 5,
+        "messages": [
+            {
+                "role": "user",
+                "timestamp": "2026-05-02T19:24:26.051955",
+                "content": "I just found out I'm failing chemistry!!"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-05-02T19:24:27.051955",
+                "content": "Tell me a little more about yourself, start from the beginning"
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-05-02T19:26:23.051955",
+                "content": "I can't get my thoughts straight"
+            },
+            {
+                "role": "assistant",
+                "timestamp": "2026-05-02T19:31:24.051955",
+                "content": "Got it. I just have a few more quick questions to ask and then I'll get you on your way."
+            },
+            {
+                "role": "user",
+                "timestamp": "2026-05-02T19:37:06.051955",
+                "content": "What?! No way! Worst app ever!"
+            }
+        ]
+    }
+]
